@@ -1,7 +1,10 @@
+import { clubContacts } from '@/data/contacts'
+
 export type BoardPosition = {
   role: string
   name: string
   documentPath: string
+  email?: string
   overview: string
 }
 
@@ -25,6 +28,7 @@ export const boardGroups: readonly BoardGroup[] = [
     positions: [
       {
         role: 'President',
+        email: clubContacts.president.email,
         name: 'Nancy Galas',
         documentPath: '/board-positions/president-position-description.docx',
         overview:
@@ -32,6 +36,7 @@ export const boardGroups: readonly BoardGroup[] = [
       },
       {
         role: 'Vice President',
+        email: clubContacts.vicepresident.email,
         name: 'Jennifer Craven',
         documentPath: '/board-positions/vice-president-position-description.docx',
         overview:
@@ -39,6 +44,7 @@ export const boardGroups: readonly BoardGroup[] = [
       },
       {
         role: 'Treasurer',
+        email: clubContacts.treasurer.email,
         name: 'Kelsie Perez',
         documentPath: '/board-positions/treasurer-position-description.docx',
         overview:
@@ -46,6 +52,7 @@ export const boardGroups: readonly BoardGroup[] = [
       },
       {
         role: 'Secretary',
+        email: clubContacts.secretary.email,
         name: 'Angel McPeek',
         documentPath: '/board-positions/secretary-position-description.docx',
         overview:
@@ -53,6 +60,7 @@ export const boardGroups: readonly BoardGroup[] = [
       },
       {
         role: 'Parliamentarian',
+        email: clubContacts.parliamentarian.email,
         name: 'Open',
         documentPath: '/board-positions/parliamentarian-position-description.docx',
         overview:
@@ -79,6 +87,7 @@ export const boardGroups: readonly BoardGroup[] = [
     positions: [
       {
         role: 'Hospitality',
+        email: clubContacts.hospitality.email,
         name: 'Sarah Hughes',
         documentPath: '/board-positions/hospitality-position-description.docx',
         overview:
@@ -86,6 +95,7 @@ export const boardGroups: readonly BoardGroup[] = [
       },
       {
         role: 'Member At Large',
+        email: clubContacts.memberatlarge.email,
         name: 'Cleyardis McDonald-Amaker',
         documentPath: '/board-positions/member-at-large-position-description.docx',
         overview:
@@ -93,6 +103,7 @@ export const boardGroups: readonly BoardGroup[] = [
       },
       {
         role: 'Membership',
+        email: clubContacts.membership.email,
         name: 'Yasmin Hoffman',
         documentPath: '/board-positions/membership-position-description.docx',
         overview:
@@ -100,6 +111,7 @@ export const boardGroups: readonly BoardGroup[] = [
       },
       {
         role: 'Philanthropy',
+        email: clubContacts.philanthropy.email,
         name: 'Thomasena Days',
         documentPath: '/board-positions/philanthropycharitable-chair-position-description.docx',
         overview:
@@ -107,6 +119,7 @@ export const boardGroups: readonly BoardGroup[] = [
       },
       {
         role: 'Publicity / Public Relations',
+        email: clubContacts.publicrelations.email,
         name: 'Cristi Ryan',
         documentPath: '/board-positions/public-relations-position-description.docx',
         overview:
@@ -114,6 +127,7 @@ export const boardGroups: readonly BoardGroup[] = [
       },
       {
         role: 'Retiree Liaison',
+        email: clubContacts.retireeliaison.email,
         name: 'Alysha Gilbert',
         documentPath: '/board-positions/retiree-liaison-position-description.docx',
         overview:
@@ -121,6 +135,7 @@ export const boardGroups: readonly BoardGroup[] = [
       },
       {
         role: 'Social Events',
+        email: clubContacts.socialevents.email,
         name: 'Eleana Lynch',
         documentPath: '/board-positions/socials-position-description.docx',
         overview:
@@ -135,6 +150,7 @@ export const boardGroups: readonly BoardGroup[] = [
       },
       {
         role: 'Special Activities Coordinator',
+        email: clubContacts.specialactivities.email,
         name: 'Eboni Montilus',
         documentPath: '/board-positions/special-activities-coordinator-position-description.docx',
         overview:
@@ -147,6 +163,7 @@ export const boardGroups: readonly BoardGroup[] = [
     positions: [
       {
         role: 'Auction Chair',
+        email: clubContacts.auction.email,
         name: 'April Johns',
         documentPath: '/board-positions/auction-position-description.docx',
         overview:
@@ -154,6 +171,7 @@ export const boardGroups: readonly BoardGroup[] = [
       },
       {
         role: 'Cookie Drive Chair',
+        email: clubContacts.cookiedrive.email,
         name: 'Angela Menghini',
         documentPath: '/board-positions/cookie-drive-chair-position-description.docx',
         overview:
@@ -168,6 +186,7 @@ export const boardGroups: readonly BoardGroup[] = [
       },
       {
         role: 'Scholarship',
+        email: clubContacts.scholarships.email,
         name: 'Cristi Ryan',
         documentPath: '/board-positions/scholarship-chair-position-description.docx',
         overview:
@@ -175,6 +194,7 @@ export const boardGroups: readonly BoardGroup[] = [
       },
       {
         role: 'Ways and Means',
+        email: clubContacts.waysandmeans.email,
         name: 'Open',
         documentPath: '/board-positions/ways-and-means-position-description.docx',
         overview:

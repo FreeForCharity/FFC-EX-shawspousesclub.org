@@ -256,7 +256,7 @@ export const siteConfig: SiteConfig = {
   // A fork with a custom domain sets its own origin here (and no basePath).
   url: 'https://shawspousesclub.org',
   twitterHandle: '',
-  contactEmail: 'shawspousesclub@outlook.com',
+  contactEmail: 'info@shawspousesclub.org',
   keywords: [
     "Shaw Spouses' Club",
     'Shaw AFB',

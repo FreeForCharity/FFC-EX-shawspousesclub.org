@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { clubContacts } from '@/data/contacts'
 import { siteConfig } from '@/lib/site.config'
 import InquiryForm from '@/components/site-pages/AuctionSponsorshipForm'
 
@@ -59,6 +60,33 @@ export default function ContactUsPage() {
             </div>
           </div>
         </div>
+        <section
+          aria-labelledby="club-contacts-heading"
+          className="mt-10 border-t border-[#D9E5FA] pt-8"
+        >
+          <h2 id="club-contacts-heading" className="mb-3 text-2xl font-semibold text-[#234F93]">
+            Contact a club team
+          </h2>
+          <p className="mb-6 leading-7 text-[#26394D]">
+            Reach the right team for membership, events, charitable programs, and club business.
+          </p>
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {Object.values(clubContacts).map((contact) => (
+              <li
+                key={contact.email}
+                className="min-w-0 rounded-xl border border-[#D9E5FA] bg-[#F4F7FF] p-4"
+              >
+                <h3 className="mb-2 font-semibold text-[#234F93]">{contact.label}</h3>
+                <a
+                  href={`mailto:${contact.email}`}
+                  className="break-all text-sm font-semibold text-[#234F93] underline"
+                >
+                  {contact.email}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
       </article>
     </section>
   )

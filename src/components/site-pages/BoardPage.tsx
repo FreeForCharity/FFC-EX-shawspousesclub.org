@@ -96,6 +96,14 @@ export default function BoardPage() {
                       </span>
                     </a>
                     <p className="mt-1 text-sm leading-6 text-[#26394D]">{position.overview}</p>
+                    {position.email && (
+                      <a
+                        href={`mailto:${position.email}`}
+                        className="mt-1 inline-block break-all text-sm font-semibold text-[#234F93] underline"
+                      >
+                        {position.email}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>

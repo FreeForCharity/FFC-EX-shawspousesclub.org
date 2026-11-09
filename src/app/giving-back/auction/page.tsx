@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { pageMetadata } from '@/lib/page-metadata'
 import Image from 'next/image'
-import { siteConfig } from '@/lib/site.config'
+import { clubContacts } from '@/data/contacts'
 import { assetPath } from '@/lib/assetPath'
 import PhotoReels from '@/components/site-pages/SocialPhotoReels'
 import auctionGalleries from '@/data/auction-galleries.json'
@@ -16,7 +16,7 @@ export const metadata = pageMetadata({
 })
 
 export default function AuctionPage() {
-  const contact = `mailto:${siteConfig.contactEmail}?subject=Charity%20Auction`
+  const contact = `mailto:${clubContacts.auction.email}?subject=Charity%20Auction`
   return (
     <section className="bg-[#F4F7FF] px-5 py-12 sm:py-16">
       <div className="mx-auto max-w-5xl">
