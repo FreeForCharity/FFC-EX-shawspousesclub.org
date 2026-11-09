@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { programs } from '@/data/programs'
-import { siteConfig } from '@/lib/site.config'
+import { clubContacts } from '@/data/contacts'
 
 export default function ClubProgramPage({
   title,
@@ -14,6 +14,14 @@ export default function ClubProgramPage({
 }) {
   const program = programs.find((item) => item.title === title)
   if (!program) return null
+
+  const programContacts: Record<string, { email: string }> = {
+    Scholarships: clubContacts.scholarships,
+    'Monthly Socials': clubContacts.socialevents,
+    'Special Activity Groups': clubContacts.specialactivities,
+    'Shower Shaw': clubContacts.cookiedrive,
+  }
+  const contact = programContacts[title]
 
   return (
     <section className="bg-[#F4F7FF] px-5 py-12 sm:py-16">
@@ -42,10 +50,10 @@ export default function ClubProgramPage({
           <p className="mt-5 text-base leading-7 text-[#26394D]">
             Application dates and forms vary by cycle. Contact the club at{' '}
             <a
-              href={`mailto:${siteConfig.contactEmail}`}
+              href={`mailto:${clubContacts.scholarships.email}`}
               className="font-semibold text-[#234F93] underline"
             >
-              {siteConfig.contactEmail}
+              {clubContacts.scholarships.email}
             </a>{' '}
             for current-cycle information.
           </p>
@@ -57,6 +65,19 @@ export default function ClubProgramPage({
               <li key={point}>{point}</li>
             ))}
           </ul>
+        )}
+
+        {contact && title !== 'Scholarships' && (
+          <p className="mt-5 leading-7 text-[#26394D]">
+            Questions? Email{' '}
+            <a
+              href={`mailto:${contact.email}`}
+              className="break-all font-semibold text-[#234F93] underline"
+            >
+              {contact.email}
+            </a>
+            .
+          </p>
         )}
 
         {children}

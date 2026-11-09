@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { siteConfig } from '@/lib/site.config'
+import { clubContacts } from '@/data/contacts'
 
 const eligibility = [
   'Spouses of active duty service members, from all branches and ranks',
@@ -166,10 +166,10 @@ export default function MembershipPage() {
         <p className="mt-8 text-center leading-6 text-[#26394D]">
           Questions about joining? Email{' '}
           <a
-            href={`mailto:${siteConfig.contactEmail}`}
+            href={`mailto:${clubContacts.membership.email}`}
             className="font-semibold text-[#234F93] underline"
           >
-            {siteConfig.contactEmail}
+            {clubContacts.membership.email}
           </a>
           .
         </p>

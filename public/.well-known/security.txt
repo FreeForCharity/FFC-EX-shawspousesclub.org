@@ -15,7 +15,7 @@
 # Contact is the club's own address. This temporary Outlook address should
 # be replaced when the club's .org email is available.
 
-Contact: mailto:shawspousesclub@outlook.com
+Contact: mailto:info@shawspousesclub.org
 Expires: 2027-10-25T00:00:00.000Z
 Preferred-Languages: en
 Canonical: https://shawspousesclub.org/.well-known/security.txt

@@ -258,12 +258,6 @@ const Footer: React.FC = () => {
                     >
                       {siteConfig.contactEmail}
                     </a>
-                    <a
-                      href={mailtoHref(undefined, 'admin@shawspousesclub.org')}
-                      className="block font-[500] text-[15px] hover:text-white transition-colors break-all aria-font"
-                    >
-                      admin@shawspousesclub.org
-                    </a>
                   </div>
                 )}
               </div>

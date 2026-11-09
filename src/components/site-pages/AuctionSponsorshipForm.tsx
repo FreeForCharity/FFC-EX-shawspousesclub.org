@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from 'react'
 import Link from 'next/link'
 import { siteConfig } from '@/lib/site.config'
+import { clubContacts } from '@/data/contacts'
 
 export default function AuctionSponsorshipForm({
   general = false,
@@ -17,7 +18,11 @@ export default function AuctionSponsorshipForm({
       ? 'https://formspree.io/f/meaaplye'
       : 'https://formspree.io/f/mljjowzd'
   const formId = clubs ? 'sub-club-contact' : general ? 'general-contact' : 'auction-sponsorship'
-  const replyEmail = general || clubs ? siteConfig.contactEmail : 'treasurer.shawsc@gmail.com'
+  const replyEmail = general
+    ? siteConfig.contactEmail
+    : clubs
+      ? clubContacts.specialactivities.email
+      : clubContacts.auction.email
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()

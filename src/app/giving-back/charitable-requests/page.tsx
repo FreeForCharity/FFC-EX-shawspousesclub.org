@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { pageMetadata } from '@/lib/page-metadata'
 import { assetPath } from '@/lib/assetPath'
-import { siteConfig } from '@/lib/site.config'
+import { clubContacts } from '@/data/contacts'
 
 export const metadata = pageMetadata({
   title: 'Charitable Donation Requests',
@@ -104,10 +104,10 @@ export default function CharitableRequestsPage() {
           <p className="mt-5 text-sm leading-6 text-[#26394D]">
             For questions about the form or your request, contact{' '}
             <a
-              href={`mailto:${siteConfig.contactEmail}`}
+              href={`mailto:${clubContacts.philanthropy.email}`}
               className="font-semibold text-[#234F93] underline"
             >
-              {siteConfig.contactEmail}
+              {clubContacts.philanthropy.email}
             </a>
             .
           </p>
