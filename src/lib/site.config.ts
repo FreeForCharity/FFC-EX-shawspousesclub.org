@@ -319,7 +319,7 @@ export const siteConfig: SiteConfig = {
 
   // Footer-standard fields still awaiting the charity; each renders a visible
   // 'awaiting information' placeholder until it is filled in.
-  pending: ['volunteerUrl', 'phone', 'team'],
+  pending: ['volunteerUrl', 'team'],
 }
 
 /**
