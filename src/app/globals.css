@@ -47,7 +47,7 @@ body {
 }
 
 :root {
-  --club-banner-height: clamp(170px, 24vw, 330px);
+  --club-banner-height: 25vw;
 }
 
 .club-header {
@@ -62,13 +62,17 @@ body {
 }
 
 .club-banner-image {
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 
 @media (width < 1280px) {
   :root {
     --club-banner-height: clamp(180px, 50vw, 240px);
+  }
+
+  .club-banner-image {
+    object-fit: cover;
   }
 
   .club-header {

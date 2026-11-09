@@ -79,7 +79,7 @@ const Header: React.FC = () => {
       <div className="absolute inset-x-0 bottom-0 h-[70px] w-full bg-white/95 shadow-sm">
         <div className="mx-auto flex h-full max-w-[1400px] items-center gap-6 px-5">
           <Link href="/" onClick={handleLinkClick} className="club-nav-brand">
-            SHAW SPOUSES CLUB
+            SHAW SPOUSES’ CLUB
             <span>COMMUNITY • CONNECTION • SERVICE</span>
           </Link>
           {/* Menu or Search */}
