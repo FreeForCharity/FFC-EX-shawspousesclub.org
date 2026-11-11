@@ -18,8 +18,9 @@ export default function AuctionSponsorshipForm({
     : clubs
       ? clubContacts.specialactivities.email
       : clubContacts.auction.email
-  const action = `https://formsubmit.co/${replyEmail}`
-  const endpoint = `https://formsubmit.co/ajax/${replyEmail}`
+  const action = clubs ? 'https://formspree.io/f/xjyypzlk' : `https://formsubmit.co/${replyEmail}`
+  const endpoint = clubs ? action : `https://formsubmit.co/ajax/${replyEmail}`
+  const provider = clubs ? 'Formspree' : 'FormSubmit'
   const subject = clubs
     ? 'Sub-club inquiry'
     : general
@@ -31,14 +32,20 @@ export default function AuctionSponsorshipForm({
     const form = event.currentTarget
     setStatus('sending')
     try {
+      const fields = new FormData(form)
       const response = await fetch(endpoint, {
         method: 'POST',
-        body: JSON.stringify(Object.fromEntries(new FormData(form))),
-        headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+        body: clubs ? fields : JSON.stringify(Object.fromEntries(fields)),
+        headers: clubs
+          ? { Accept: 'application/json' }
+          : { Accept: 'application/json', 'Content-Type': 'application/json' },
       })
       if (!response.ok) throw new Error('Submission failed')
-      const result: { success?: boolean | string } = await response.json()
-      if (result.success !== true && result.success !== 'true') throw new Error('Submission failed')
+      if (!clubs) {
+        const result: { success?: boolean | string } = await response.json()
+        if (result.success !== true && result.success !== 'true')
+          throw new Error('Submission failed')
+      }
       form.reset()
       setStatus('success')
     } catch {
@@ -68,8 +75,12 @@ export default function AuctionSponsorshipForm({
             : 'Send our auction team a message about sponsorship or donating an auction item.'}
       </p>
       <form action={action} method="POST" onSubmit={submit} className="space-y-5">
-        <input type="hidden" name="_subject" value={subject} />
-        <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
+        {!clubs && (
+          <>
+            <input type="hidden" name="_subject" value={subject} />
+            <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
+          </>
+        )}
         <fieldset disabled={status === 'sending'} className="space-y-5 disabled:opacity-70">
           <legend className="sr-only">
             {clubs
@@ -97,7 +108,7 @@ export default function AuctionSponsorshipForm({
             <textarea name="comment" rows={6} required className={inputClass} />
           </label>
           <p className="text-sm leading-6 text-[#26394D]">
-            Your name, email, and message are processed by FormSubmit and shared with{' '}
+            Your name, email, and message are processed by {provider} and shared with{' '}
             {general || clubs ? 'the club' : 'the club’s auction team'} to respond to your inquiry.
             See our{' '}
             <Link href="/privacy-policy" className="font-semibold text-[#234F93] underline">
