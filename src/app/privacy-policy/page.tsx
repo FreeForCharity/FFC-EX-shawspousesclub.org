@@ -192,20 +192,20 @@ export default function PrivacyPolicy() {
           </ul>
 
           <p className="text-[14px] text-[#666] pb-[10px] leading-[24px] font-[500] mt-[1em]">
-            <strong>3.5. Formspree - Contact, Sub-Club, and Auction Sponsorship Inquiries</strong>
+            <strong>3.5. FormSubmit - Contact, Sub-Club, and Auction Sponsorship Inquiries</strong>
           </p>
           <p className="text-[14px] text-[#666] pb-[10px] leading-[24px] font-[500]">
             Board-interest inquiries go through our Contact Us form. Our contact, sub-club, and
             auction sponsorship forms send your first name, last name, email address, and comment to
-            Formspree for processing and delivery to the club. Auction sponsorship inquiries go to
-            the treasurer. We use this information to respond to your inquiry. Please review{' '}
+            FormSubmit for processing and delivery to the club. Auction sponsorship inquiries go to
+            the auction team. We use this information to respond to your inquiry. Please review{' '}
             <a
-              href="https://formspree.io/legal/privacy-policy"
+              href="https://formsubmit.co/privacy.pdf"
               className="text-[#234F93] underline"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Formspree’s Privacy Policy
+              FormSubmit’s Privacy Policy
             </a>
             .
           </p>
