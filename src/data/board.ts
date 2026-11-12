@@ -5,6 +5,8 @@ export type BoardPosition = {
   name: string
   documentPath: string
   email?: string
+  bio?: string
+  photoPath?: string
   overview: string
 }
 
@@ -30,7 +32,7 @@ export const boardGroups: readonly BoardGroup[] = [
         role: 'President',
         email: clubContacts.president.email,
         name: 'Nancy Galas',
-        documentPath: '/board-positions/president-position-description.docx',
+        documentPath: '/board-positions/president-position-description.pdf',
         overview:
           'Leads the club and Governing Board, presides over membership meetings, and represents the club in the community.',
       },
@@ -38,7 +40,7 @@ export const boardGroups: readonly BoardGroup[] = [
         role: 'Vice President',
         email: clubContacts.vicepresident.email,
         name: 'Jennifer Craven',
-        documentPath: '/board-positions/vice-president-position-description.docx',
+        documentPath: '/board-positions/vice-president-position-description.pdf',
         overview:
           'Supports the President, steps in when needed, and helps coordinate board committees and club operations.',
       },
@@ -46,7 +48,7 @@ export const boardGroups: readonly BoardGroup[] = [
         role: 'Treasurer',
         email: clubContacts.treasurer.email,
         name: 'Kelsie Perez',
-        documentPath: '/board-positions/treasurer-position-description.docx',
+        documentPath: '/board-positions/treasurer-position-description.pdf',
         overview:
           'Oversees club finances, tracks income and expenses, reports to the board, and supports budgeting and required filings.',
       },
@@ -54,7 +56,7 @@ export const boardGroups: readonly BoardGroup[] = [
         role: 'Secretary',
         email: clubContacts.secretary.email,
         name: 'Angel McPeek',
-        documentPath: '/board-positions/secretary-position-description.docx',
+        documentPath: '/board-positions/secretary-position-description.pdf',
         overview:
           'Prepares agendas, records and distributes meeting minutes, and maintains club correspondence and organizational files.',
       },
@@ -62,21 +64,21 @@ export const boardGroups: readonly BoardGroup[] = [
         role: 'Parliamentarian',
         email: clubContacts.parliamentarian.email,
         name: 'Open',
-        documentPath: '/board-positions/parliamentarian-position-description.docx',
+        documentPath: '/board-positions/parliamentarian-position-description.pdf',
         overview:
           'Advises the board on the club’s constitution, bylaws, and meeting procedures; supports voting, elections, and governing-document reviews.',
       },
       {
         role: 'Honorary Advisor',
         name: 'Kristin Walker',
-        documentPath: '/board-positions/honorary-advisor-position-description.docx',
+        documentPath: '/board-positions/honorary-advisor-position-description.pdf',
         overview:
           'Offers historical perspective and leadership guidance, and represents the club at community events as a non-voting advisor.',
       },
       {
         role: 'Honorary Advisor',
         name: 'Lauren Getz',
-        documentPath: '/board-positions/honorary-advisor-position-description.docx',
+        documentPath: '/board-positions/honorary-advisor-position-description.pdf',
         overview:
           'Offers historical perspective and leadership guidance, and represents the club at community events as a non-voting advisor.',
       },
@@ -89,7 +91,7 @@ export const boardGroups: readonly BoardGroup[] = [
         role: 'Hospitality',
         email: clubContacts.hospitality.email,
         name: 'Sarah Hughes',
-        documentPath: '/board-positions/hospitality-position-description.docx',
+        documentPath: '/board-positions/hospitality-position-description.pdf',
         overview:
           'Welcomes members and guests, helps newcomers feel included, and coordinates hospitality details for club events.',
       },
@@ -97,7 +99,7 @@ export const boardGroups: readonly BoardGroup[] = [
         role: 'Member At Large',
         email: clubContacts.memberatlarge.email,
         name: 'Cleyardis McDonald-Amaker',
-        documentPath: '/board-positions/member-at-large-position-description.docx',
+        documentPath: '/board-positions/member-at-large-position-description.pdf',
         overview:
           'Brings member perspectives to the Executive Board and supports special projects, activity groups, and other board positions.',
       },
@@ -105,7 +107,7 @@ export const boardGroups: readonly BoardGroup[] = [
         role: 'Membership',
         email: clubContacts.membership.email,
         name: 'Yasmin Hoffman',
-        documentPath: '/board-positions/membership-position-description.docx',
+        documentPath: '/board-positions/membership-position-description.pdf',
         overview:
           'Welcomes and registers members, maintains membership records, and supports dues collection, event check-in, and member recognition.',
       },
@@ -113,7 +115,7 @@ export const boardGroups: readonly BoardGroup[] = [
         role: 'Philanthropy',
         email: clubContacts.philanthropy.email,
         name: 'Thomasena Days',
-        documentPath: '/board-positions/philanthropycharitable-chair-position-description.docx',
+        documentPath: '/board-positions/philanthropycharitable-chair-position-description.pdf',
         overview:
           'Reviews charitable requests, coordinates approved giving, and leads the annual Cookie Drive with the community.',
       },
@@ -121,7 +123,7 @@ export const boardGroups: readonly BoardGroup[] = [
         role: 'Publicity / Public Relations',
         email: clubContacts.publicrelations.email,
         name: 'Cristi Ryan',
-        documentPath: '/board-positions/public-relations-position-description.docx',
+        documentPath: '/board-positions/public-relations-position-description.pdf',
         overview:
           'Maintains the club’s visual identity and creates event promotions, newsletters, and communications materials.',
       },
@@ -129,7 +131,7 @@ export const boardGroups: readonly BoardGroup[] = [
         role: 'Retiree Liaison',
         email: clubContacts.retireeliaison.email,
         name: 'Alysha Gilbert',
-        documentPath: '/board-positions/retiree-liaison-position-description.docx',
+        documentPath: '/board-positions/retiree-liaison-position-description.pdf',
         overview:
           'Builds connections with retired military spouses and veteran families, encourages their involvement, and shares relevant resources.',
       },
@@ -137,14 +139,14 @@ export const boardGroups: readonly BoardGroup[] = [
         role: 'Social Events',
         email: clubContacts.socialevents.email,
         name: 'Eleana Lynch',
-        documentPath: '/board-positions/socials-position-description.docx',
+        documentPath: '/board-positions/socials-position-description.pdf',
         overview:
           'Plans and hosts monthly membership meetings and social events, coordinating schedules, venues, programs, and event details.',
       },
       {
         role: 'Social Media Manager',
         name: 'Open',
-        documentPath: '/board-positions/social-media-manager-position-description.docx',
+        documentPath: '/board-positions/social-media-manager-position-description.pdf',
         overview:
           'Maintains the club website and social media channels and coordinates timely posts and event promotions with the board.',
       },
@@ -152,7 +154,7 @@ export const boardGroups: readonly BoardGroup[] = [
         role: 'Special Activities Coordinator',
         email: clubContacts.specialactivities.email,
         name: 'Eboni Montilus',
-        documentPath: '/board-positions/special-activities-coordinator-position-description.docx',
+        documentPath: '/board-positions/special-activities-coordinator-position-description.pdf',
         overview:
           'Starts and supports member-led interest groups, helps recruit participants, and guides groups toward self-sufficiency.',
       },
@@ -165,22 +167,22 @@ export const boardGroups: readonly BoardGroup[] = [
         role: 'Auction Chair',
         email: clubContacts.auction.email,
         name: 'April Johns',
-        documentPath: '/board-positions/auction-position-description.docx',
+        documentPath: '/board-positions/auction-position-description.pdf',
         overview:
           'Leads planning for the annual Charity Auction, including event logistics, volunteers, promotion, sponsors, and donated items.',
       },
       {
         role: 'Cookie Drive Chair',
         email: clubContacts.cookiedrive.email,
-        name: 'Angela Menghini',
-        documentPath: '/board-positions/cookie-drive-chair-position-description.docx',
+        name: 'Cleo Klopfleisch',
+        documentPath: '/board-positions/cookie-drive-chair-position-description.pdf',
         overview:
           'Organizes the annual Cookie Drive with the board and community, coordinating collections, volunteers, packaging, and distribution.',
       },
       {
         role: 'Golf Tournament Chair',
         name: 'Open',
-        documentPath: '/board-positions/golf-tournament-chair-position-description.docx',
+        documentPath: '/board-positions/golf-tournament-chair-position-description.pdf',
         overview:
           'Leads planning for the annual Golf Tournament, including event logistics, volunteers, promotion, sponsors, and donated prizes.',
       },
@@ -188,7 +190,7 @@ export const boardGroups: readonly BoardGroup[] = [
         role: 'Scholarship',
         email: clubContacts.scholarships.email,
         name: 'Cristi Ryan',
-        documentPath: '/board-positions/scholarship-chair-position-description.docx',
+        documentPath: '/board-positions/scholarship-chair-position-description.pdf',
         overview:
           'Leads scholarship outreach, application and review coordination, and the recognition of scholarship recipients.',
       },
@@ -196,7 +198,7 @@ export const boardGroups: readonly BoardGroup[] = [
         role: 'Ways and Means',
         email: clubContacts.waysandmeans.email,
         name: 'Open',
-        documentPath: '/board-positions/ways-and-means-position-description.docx',
+        documentPath: '/board-positions/ways-and-means-position-description.pdf',
         overview:
           'Coordinates non-charitable fundraising, including merchandise and membership-meeting activities, and reports sales and inventory.',
       },
