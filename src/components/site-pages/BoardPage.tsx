@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import BoardPositionOverview from '@/components/site-pages/BoardPositionOverview'
 import BoardInterestForm from '@/components/site-pages/BoardInterestForm'
 import { boardGroups, boardOpenings, boardTerm } from '@/data/board'
 import { assetPath } from '@/lib/assetPath'
@@ -143,21 +144,10 @@ export default function BoardPage() {
                       {position.bio && (
                         <p className="mt-2 text-sm leading-6 text-[#26394D]">{position.bio}</p>
                       )}
-                      <div
+                      <BoardPositionOverview
                         id={`${group.title.toLowerCase().replace(/\s+/g, '-')}-overview-${index}`}
-                        role="tooltip"
-                        className="invisible absolute left-0 top-full w-full max-w-md z-10 rounded-lg border border-[#D9E5FA] bg-white p-3 text-sm leading-6 text-[#26394D] shadow-lg group-focus-within:visible [@media(hover:hover)]:group-hover:visible [@media(hover:none)]:hidden"
-                      >
-                        {position.overview}
-                      </div>
-                      <details className="mt-1 text-sm text-[#26394D] [@media(hover:hover)]:hidden">
-                        <summary className="cursor-pointer font-semibold text-[#234F93]">
-                          Details
-                        </summary>
-                        <p className="mt-1 rounded-lg bg-[#F4F7FF] p-3 leading-6">
-                          {position.overview}
-                        </p>
-                      </details>
+                        overview={position.overview}
+                      />
                       {position.email && (
                         <a
                           href={`mailto:${position.email}`}
