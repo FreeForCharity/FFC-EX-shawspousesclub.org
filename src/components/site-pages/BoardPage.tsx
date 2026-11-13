@@ -30,8 +30,7 @@ export default function BoardPage() {
             <a href="#meet-board-heading" className="font-semibold text-[#234F93] underline">
               Explore board profiles
             </a>
-            . Hover or tab to a title for a quick overview, or click it to open the PDF. On a touch
-            screen, tap Details for the overview.
+            . Select Details for a quick overview, or select a position title to open its PDF.
           </p>
         </header>
 
@@ -95,13 +94,13 @@ export default function BoardPage() {
                   groupIndex === 0 ? 'grid gap-5 md:grid-cols-2' : 'grid gap-5 sm:grid-cols-2'
                 }
               >
-                {group.positions.map((position, index) => (
+                {group.positions.map((position) => (
                   <li
                     key={`${position.role}-${position.name}`}
                     className={
                       groupIndex === 0
-                        ? 'group relative flex items-start gap-4 rounded-2xl border border-[#D9E5FA] bg-white p-5'
-                        : 'group relative border-t border-[#D9E5FA] py-4'
+                        ? 'flex items-start gap-4 rounded-2xl border border-[#D9E5FA] bg-white p-5'
+                        : 'border-t border-[#D9E5FA] py-4'
                     }
                   >
                     {groupIndex === 0 &&
@@ -134,7 +133,6 @@ export default function BoardPage() {
                           rel="noopener noreferrer"
                           className="underline decoration-[#A5B5CC] underline-offset-4 hover:text-[#234F93]"
                           aria-label={`${position.role}, position description (PDF, opens in a new tab)`}
-                          aria-describedby={`${group.title.toLowerCase().replace(/\s+/g, '-')}-overview-${index}`}
                         >
                           {position.role}
                         </a>{' '}
@@ -144,10 +142,7 @@ export default function BoardPage() {
                       {position.bio && (
                         <p className="mt-2 text-sm leading-6 text-[#26394D]">{position.bio}</p>
                       )}
-                      <BoardPositionOverview
-                        id={`${group.title.toLowerCase().replace(/\s+/g, '-')}-overview-${index}`}
-                        overview={position.overview}
-                      />
+                      <BoardPositionOverview overview={position.overview} />
                       {position.email && (
                         <a
                           href={`mailto:${position.email}`}
