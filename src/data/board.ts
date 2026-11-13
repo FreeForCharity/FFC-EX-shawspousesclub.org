@@ -96,7 +96,7 @@ export const boardGroups: readonly BoardGroup[] = [
           'Welcomes members and guests, helps newcomers feel included, and coordinates hospitality details for club events.',
       },
       {
-        role: 'Member At Large',
+        role: 'Member-at-Large',
         email: clubContacts.memberatlarge.email,
         name: 'Cleyardis McDonald-Amaker',
         documentPath: '/board-positions/member-at-large-position-description.pdf',
