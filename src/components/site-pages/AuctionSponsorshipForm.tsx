@@ -12,29 +12,40 @@ export default function AuctionSponsorshipForm({
   general?: boolean
   clubs?: boolean
 }) {
-  const endpoint = clubs
-    ? 'https://formspree.io/f/xjyypzlk'
-    : general
-      ? 'https://formspree.io/f/meaaplye'
-      : 'https://formspree.io/f/mljjowzd'
   const formId = clubs ? 'sub-club-contact' : general ? 'general-contact' : 'auction-sponsorship'
   const replyEmail = general
     ? siteConfig.contactEmail
     : clubs
       ? clubContacts.specialactivities.email
       : clubContacts.auction.email
+  const action = clubs ? 'https://formspree.io/f/xjyypzlk' : `https://formsubmit.co/${replyEmail}`
+  const endpoint = clubs ? action : `https://formsubmit.co/ajax/${replyEmail}`
+  const provider = clubs ? 'Formspree' : 'FormSubmit'
+  const subject = clubs
+    ? 'Sub-club inquiry'
+    : general
+      ? 'Website inquiry'
+      : 'Auction sponsorship inquiry'
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     const form = event.currentTarget
     setStatus('sending')
     try {
+      const fields = new FormData(form)
       const response = await fetch(endpoint, {
         method: 'POST',
-        body: new FormData(form),
-        headers: { Accept: 'application/json' },
+        body: clubs ? fields : JSON.stringify(Object.fromEntries(fields)),
+        headers: clubs
+          ? { Accept: 'application/json' }
+          : { Accept: 'application/json', 'Content-Type': 'application/json' },
       })
       if (!response.ok) throw new Error('Submission failed')
+      if (!clubs) {
+        const result: { success?: boolean | string } = await response.json()
+        if (result.success !== true && result.success !== 'true')
+          throw new Error('Submission failed')
+      }
       form.reset()
       setStatus('success')
     } catch {
@@ -60,11 +71,16 @@ export default function AuctionSponsorshipForm({
         {clubs
           ? 'Interested in one of our sub-clubs, or have an idea for a new one? Tell us which club you’re curious about, or share the activity you’d like to see added.'
           : general
-            ? 'We’d love to hear from you. Send the club a message below.'
-            : 'Send our treasurer a message about sponsorship or donating an auction item.'}{' '}
-        All fields are required.
+            ? 'We’d love to hear from you.'
+            : 'Send our auction team a message about sponsorship or donating an auction item.'}
       </p>
-      <form action={endpoint} method="POST" onSubmit={submit} className="space-y-5">
+      <form action={action} method="POST" onSubmit={submit} className="space-y-5">
+        {!clubs && (
+          <>
+            <input type="hidden" name="_subject" value={subject} />
+            <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
+          </>
+        )}
         <fieldset disabled={status === 'sending'} className="space-y-5 disabled:opacity-70">
           <legend className="sr-only">
             {clubs
@@ -92,9 +108,9 @@ export default function AuctionSponsorshipForm({
             <textarea name="comment" rows={6} required className={inputClass} />
           </label>
           <p className="text-sm leading-6 text-[#26394D]">
-            Your name, email, and message are processed by Formspree and shared with{' '}
-            {general || clubs ? 'the club' : 'the club’s treasurer'} to respond to your inquiry. See
-            our{' '}
+            Your name, email, and message are processed by {provider} and shared with{' '}
+            {general || clubs ? 'the club' : 'the club’s auction team'} to respond to your inquiry.
+            See our{' '}
             <Link href="/privacy-policy" className="font-semibold text-[#234F93] underline">
               Privacy Policy
             </Link>
