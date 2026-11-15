@@ -187,7 +187,7 @@ export const boardGroups: readonly BoardGroup[] = [
           'Leads planning for the annual Golf Tournament, including event logistics, volunteers, promotion, sponsors, and donated prizes.',
       },
       {
-        role: 'Scholarship',
+        role: 'Scholarships',
         email: clubContacts.scholarships.email,
         name: 'Cristi Ryan',
         documentPath: '/board-positions/scholarship-chair-position-description.pdf',
