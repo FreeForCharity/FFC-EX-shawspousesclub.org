@@ -8,6 +8,14 @@ import auctionGalleries from '@/data/auction-galleries.json'
 import auctionSponsors from '@/data/auction-sponsors.json'
 import AuctionSponsorshipForm from '@/components/site-pages/AuctionSponsorshipForm'
 
+const ticketUrl = 'https://www.zeffy.com/en-US/ticketing/shaw-spouses-club-charity-auction'
+const ticketEmbedUrl = 'https://www.zeffy.com/embed/ticketing/shaw-spouses-club-charity-auction'
+const ticketOptions = [
+  { label: 'Single ticket', price: '$55' },
+  { label: 'Two tickets', price: '$100' },
+  { label: 'Table of eight', price: '$400' },
+]
+
 export const metadata = pageMetadata({
   title: 'Charity Auction',
   description:
@@ -47,7 +55,7 @@ export default function AuctionPage() {
               Save the date · Jungle Safari
             </p>
             <h2 className="mb-4 text-2xl font-semibold text-[#234F93]">Annual Charity Auction</h2>
-            <dl className="mb-5 grid gap-4 text-[#26394D] sm:grid-cols-3">
+            <dl className="mb-5 grid gap-4 text-[#26394D] sm:grid-cols-2 lg:grid-cols-4">
               <div>
                 <dt className="font-semibold">When</dt>
                 <dd>
@@ -55,8 +63,12 @@ export default function AuctionPage() {
                 </dd>
               </div>
               <div>
-                <dt className="font-semibold">Doors open</dt>
-                <dd>5 PM</dd>
+                <dt className="font-semibold">Check-in begins</dt>
+                <dd>4:30 PM</dd>
+              </div>
+              <div>
+                <dt className="font-semibold">Bidding starts</dt>
+                <dd>5:00 PM</dd>
               </div>
               <div>
                 <dt className="font-semibold">Where</dt>
@@ -69,7 +81,54 @@ export default function AuctionPage() {
               military families and the Shaw community.
             </p>
           </div>
-          <p className="mb-6 text-[#26394D]">Ticket information will be posted when available.</p>
+          <section
+            id="auction-tickets"
+            aria-labelledby="auction-tickets-heading"
+            className="mb-8 scroll-mt-24 rounded-2xl border border-[#D9E5FA] bg-[#F4F7FF] p-6 sm:p-8"
+          >
+            <h2 id="auction-tickets-heading" className="mb-3 text-2xl font-semibold text-[#234F93]">
+              Auction tickets are on sale now
+            </h2>
+            <p className="mb-5 leading-7 text-[#26394D]">
+              Tickets include a buffet dinner, a nonalcoholic drink station, an event program, and a
+              bidding paddle.
+            </p>
+            <dl className="grid gap-3 text-[#26394D] sm:grid-cols-3">
+              {ticketOptions.map(({ label, price }) => (
+                <div key={label} className="rounded-xl border border-[#D9E5FA] bg-white p-4">
+                  <dt className="font-semibold">{label}</dt>
+                  <dd className="mt-1 text-xl font-bold text-[#234F93]">{price}</dd>
+                </div>
+              ))}
+            </dl>
+            <div className="my-6 flex flex-wrap items-center gap-4">
+              <a
+                href={ticketUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center rounded-full bg-[#2F5FB8] px-6 py-3 font-semibold text-white hover:bg-[#376BCD]"
+              >
+                Buy tickets on Zeffy (opens in a new tab)
+              </a>
+              <Image
+                src={assetPath('/Images/auction/auction-tickets-qr.png')}
+                alt="Scan to open auction ticket sales on Zeffy"
+                width={108}
+                height={108}
+                className="rounded-lg border border-[#D9E5FA] bg-white"
+              />
+            </div>
+            <iframe
+              title="Shaw Spouses’ Club Charity Auction ticket checkout powered by Zeffy"
+              src={ticketEmbedUrl}
+              className="h-[640px] w-full rounded-xl border border-[#D9E5FA] bg-white"
+              loading="lazy"
+              allow="payment"
+            />
+          </section>
+          <p className="mb-3 text-center text-sm font-semibold text-[#26394D]">
+            Check-in begins at 4:30 PM. Bidding starts at 5:00 PM.
+          </p>
           <a
             href={assetPath('/Images/auction/auction-save-the-date_orig.webp')}
             target="_blank"
@@ -91,7 +150,7 @@ export default function AuctionPage() {
             {[
               {
                 title: 'Join us',
-                text: 'Interested in attending? Contact us for information about the next auction.',
+                text: 'Get your tickets through Zeffy and join us for the Jungle Safari auction.',
               },
               {
                 title: 'Contribute an item',
