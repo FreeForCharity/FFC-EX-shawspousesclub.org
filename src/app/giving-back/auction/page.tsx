@@ -101,7 +101,7 @@ export default function AuctionPage() {
                 </div>
               ))}
             </dl>
-            <div className="my-6 flex flex-wrap items-center gap-4">
+            <div className="my-6">
               <a
                 href={ticketUrl}
                 target="_blank"
@@ -110,14 +110,11 @@ export default function AuctionPage() {
               >
                 Buy tickets on Zeffy (opens in a new tab)
               </a>
-              <Image
-                src={assetPath('/Images/auction/auction-tickets-qr.png')}
-                alt="Scan to open auction ticket sales on Zeffy"
-                width={108}
-                height={108}
-                className="rounded-lg border border-[#D9E5FA] bg-white"
-              />
             </div>
+            <p className="mb-3 leading-7 text-[#26394D]">
+              If you prefer, you can purchase your tickets right here using the secure Zeffy
+              checkout below.
+            </p>
             <iframe
               title="Shaw Spouses’ Club Charity Auction ticket checkout powered by Zeffy"
               src={ticketEmbedUrl}
